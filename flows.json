@@ -1,0 +1,319 @@
+[
+    {
+        "id": "f9200273971ffab4",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "31aeb9c95d63f82f",
+        "type": "inject",
+        "z": "f9200273971ffab4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 610,
+        "y": 240,
+        "wires": [
+            [
+                "f2ac8eec4e3d2e0d",
+                "e03949db39fe13a3",
+                "6215b448cf80a91d"
+            ]
+        ]
+    },
+    {
+        "id": "f2ac8eec4e3d2e0d",
+        "type": "debug",
+        "z": "f9200273971ffab4",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "673caa448d2bb3f9",
+        "type": "inject",
+        "z": "f9200273971ffab4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 610,
+        "y": 320,
+        "wires": [
+            [
+                "f2ac8eec4e3d2e0d",
+                "e03949db39fe13a3"
+            ]
+        ]
+    },
+    {
+        "id": "e03949db39fe13a3",
+        "type": "rpi-gpio out",
+        "z": "f9200273971ffab4",
+        "name": "",
+        "pin": "18",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 820,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "2581e7a401a60adb",
+        "type": "ui-switch",
+        "z": "f9200273971ffab4",
+        "name": "",
+        "label": "switch",
+        "group": "b218817dfbf319c7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "decouple": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "className": "",
+        "layout": "row-spread",
+        "clickableArea": "switch",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 490,
+        "y": 480,
+        "wires": [
+            [
+                "ae859985f75f8844"
+            ]
+        ]
+    },
+    {
+        "id": "ae859985f75f8844",
+        "type": "ui-led",
+        "z": "f9200273971ffab4",
+        "name": "",
+        "group": "b218817dfbf319c7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "states": [
+            {
+                "value": "false",
+                "valueType": "bool",
+                "color": "#ff0000"
+            },
+            {
+                "value": "true",
+                "valueType": "bool",
+                "color": "#00ff00"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showBorder": true,
+        "showGlow": true,
+        "x": 690,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "6215b448cf80a91d",
+        "type": "mqtt out",
+        "z": "f9200273971ffab4",
+        "name": "",
+        "topic": "pi",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "1fd5db14dfbb11aa",
+        "x": 710,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b218817dfbf319c7",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "937537c846573178",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default",
+        "tab": ""
+    },
+    {
+        "id": "1fd5db14dfbb11aa",
+        "type": "mqtt-broker",
+        "name": "192.168.137.1",
+        "broker": "192.168.137.1",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "937537c846573178",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "2129df0117c1290c",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "097693beff8c0b3e",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "tabs": [],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "2129df0117c1290c",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "097693beff8c0b3e",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#fcfcfd",
+            "primary": "#0d74ce",
+            "bgPage": "#f9f9fb",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9d9e0"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "3c82abed997afe9a",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-node-pi-gpio": "2.0.7",
+            "@flowfuse/node-red-dashboard": "1.33.0",
+            "@flowfuse/node-red-dashboard-2-ui-led": "1.1.1"
+        }
+    }
+]
